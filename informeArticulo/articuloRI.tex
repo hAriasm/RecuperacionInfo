@@ -374,7 +374,7 @@ Se ha diseñado una aplicación visual interactiva que incorpora los componentes
     \item \textbf{Panel de Distribución}: Facilita la visualización de distribuciones de variables principales mediante histogramas y gráficos de densidad.
 \end{enumerate}
 
-En la tabla \ref{tab:visualtareas} se presenta un cuadro que cruza los componentes visuales con las tareas de diseño. 
+En la tabla \ref{tab:visualtareas} se presenta un cuadro que cruza los componentes visuales con las tareas de diseño.
 
 \begin{table}[h!]
 \centering
@@ -397,6 +397,27 @@ Diagramas de Violín &  &  & X \\ \hline
 
 
 \section{Resultados}
+
+En esta sección se presentan los resultados obtenidos tras aplicar la técnica de t-SNE (t-distributed Stochastic Neighbor Embedding) a los datos del estudio, permitiendo visualizar la distribución de los pacientes en función de diferentes variables. Las figuras \ref{fig:tsne_bmi}, \ref{fig:tsne_cancer_stage}, y \ref{fig:tsne_other_cancer} muestran las visualizaciones en dos dimensiones de los datos, coloreadas según categorías de BMI, etapas del cáncer y presencia de otros tipos de cáncer, respectivamente.
+
+
+\subsection{Interpretación de las Gráficas de t-SNE}
+
+Las gráficas generadas por t-SNE revelan la distribución de los pacientes en función de las variables BMI, etapas del cáncer y presencia de otros tipos de cáncer en un espacio de dos dimensiones. Se destacan los siguientes aspectos:
+
+\begin{itemize}
+    \item \textbf{Agrupamientos según BMI}: La figura \ref{fig:tsne_bmi} muestra que los pacientes se agrupan claramente en función de su categoría de BMI. Este comportamiento sugiere que el BMI es una variable importante que puede estar correlacionada con otros factores en el diagnóstico y progresión del cáncer de pulmón.
+
+    \item \textbf{Diferencias entre Etapas del Cáncer}: La figura \ref{fig:tsne_cancer_stage} indica una distribución más dispersa de las etapas del cáncer. Se observan mezclas entre diferentes etapas en ciertas regiones, lo que podría indicar la existencia de características compartidas entre pacientes en diferentes etapas de la enfermedad.
+
+    \item \textbf{Relación con Otros Tipos de Cáncer}: La figura \ref{fig:tsne_other_cancer} revela una distribución particular de los pacientes con otros tipos de cáncer (coloreados en verde). Estos pacientes se concentran en ciertas áreas específicas del gráfico, lo que podría indicar un patrón subyacente en la comorbilidad del cáncer de pulmón con otros tipos de cáncer.
+\end{itemize}
+
+\subsection{Implicaciones para el Análisis de Subgrupos}
+
+La diferenciación observada en las gráficas sugiere que tanto el BMI, la etapa del cáncer y la presencia de otros tipos de cáncer juegan roles críticos en la evolución y tratamiento de los pacientes con cáncer de pulmón. Estos hallazgos justifican un análisis más profundo de cada subgrupo, considerando otras variables relevantes para entender mejor su influencia en la supervivencia y en la respuesta al tratamiento.
+
+
 
 \section{Discusión}
 Según la \autoref{fig:tsne_cholesterol}, podemos demuestran que una persona con nivel de colesterol superior debería someterse a un chequeo preventivo de cáncer, porque presenta una mayor probabilidad de desarrollar  cáncer pulmonar.
@@ -426,9 +447,9 @@ Url de git hub:
  \section{Video explicativo}
 Url de Youtube:
 \href{https://github.com/hAriasm/RecuperacionInfo}{URL: Youtube }
- 
- 
- 
+
+
+
 \ifCLASSOPTIONcaptionsoff
   \newpage
 \fi
