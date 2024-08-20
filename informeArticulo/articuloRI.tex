@@ -163,6 +163,11 @@ Categóricos                 & gender, country, treatment\_type diagnosis, famil
 \caption{Tipos de variable por atributos}
 \label{tab:tipoVariable}
 \end{table}
+
+Matplotlib\cite{hunter2007matplotlib} es una herramienta esencial para la visualización de datos en Python, particularmente en proyectos que involucran grandes volúmenes de información, como los datos espacio-temporales sobre el diagnóstico de cáncer pulmonar. Su importancia radica en su capacidad para transformar datos complejos en gráficos visuales claros, facilitando así la comprensión y el análisis de patrones y tendencias que podrían no ser evidentes en los datos crudos. Además, Matplotlib permite una personalización detallada de los gráficos, lo que es crucial para adaptar las visualizaciones a las necesidades específicas de tu investigación y para comunicar los resultados de manera efectiva. Su uso asegura que los hallazgos puedan ser presentados de forma clara y comprensible tanto para audiencias técnicas como no técnicas.
+
+La librería scikit-learn (sklearn)\cite{pedregosa2011scikit} es fundamental para cualquier trabajo relacionado con la ciencia de datos y el aprendizaje automático debido a su amplia colección de algoritmos eficientes para tareas como clasificación, regresión, clustering y reducción de dimensionalidad. Su facilidad de uso y la consistencia de su API permiten implementar modelos complejos con relativamente pocas líneas de código, lo que facilita la experimentación y el ajuste de modelos. Además, sklearn incluye herramientas para el preprocesamiento de datos, validación cruzada y optimización de hiperparámetros, lo que es crucial para asegurar que los modelos generados sean robustos y generalizables. En el contexto de mi trabajo, donde la optimización y evaluación de modelos son esenciales, scikit-learn proporciona un conjunto integral de herramientas que mejoran la eficiencia del desarrollo y permiten realizar análisis avanzados con precisión.
+
 \begin{table}[h!]
 \centering
 \begin{tabular}{|l|c|c|c|}
@@ -396,8 +401,11 @@ Diagramas de Violín &  &  & X \\ \hline
 \section{Discusión}
 Según la \autoref{fig:tsne_cholesterol}, podemos demuestran que una persona con nivel de colesterol superior debería someterse a un chequeo preventivo de cáncer, porque presenta una mayor probabilidad de desarrollar  cáncer pulmonar.
 
+Según la \autoref{fig:tsne_bmi}, se observa que el índice de masa corporal (BMI) tiene una correlación con los resultados mostrados en la  \autoref{fig:tsne_cancer_stage} ya que las personas con mayor BMI tienden a tener niveles más altos de colesterol. Además, la  \autoref{fig:tsne_cancer_stage} revela que las personas con obesidad y colesterol alto tienen una mayor probabilidad de encontrarse en algún estado avanzado de cáncer. Asimismo, en la \autoref{fig:tsne_other_stage} se muestra que estas mismas personas también pueden tener una mayor susceptibilidad a desarrollar otros tipos de cáncer.
+
+
 \section{Conclusion}
-The conclusion goes here.
+Los análisis visuales presentados en las figuras sugieren una relación significativa entre el índice de masa corporal (BMI), los niveles de colesterol y la probabilidad de desarrollar cáncer pulmonar u otros tipos de cáncer. Específicamente, personas con un BMI elevado y colesterol alto muestran una mayor susceptibilidad a encontrarse en estados avanzados de cáncer. Estos hallazgos subrayan la importancia de monitorear el colesterol y el BMI como posibles indicadores de riesgo, sugiriendo que aquellos con niveles altos deberían considerar la realización de chequeos preventivos de cáncer para una detección temprana y un manejo adecuado.
 
 
 
@@ -415,6 +423,12 @@ Detalle de la aplicación
 Url de git hub:
 \href{https://github.com/hAriasm/RecuperacionInfo}{URL: RecuperacionInfo }
 
+ \section{Video explicativo}
+Url de Youtube:
+\href{https://github.com/hAriasm/RecuperacionInfo}{URL: Youtube }
+ 
+ 
+ 
 \ifCLASSOPTIONcaptionsoff
   \newpage
 \fi
@@ -449,6 +463,14 @@ Centers for Disease Control and Prevention (CDC), ``Defining Adult Overweight an
 
 \bibitem{nih_bmi_colesterol}
 National Institutes of Health (NIH), ``Clinical Guidelines on the Identification, Evaluation, and Treatment of Overweight and Obesity in Adults,'' \emph{NIH}, 1998. [Online]. Available: https://www.nhlbi.nih.gov/files/docs/guidelines/obesity.pdf
+
+\bibitem{hunter2007matplotlib}
+Hunter, J. D. (2007). Matplotlib: A 2D graphics environment. \textit{Computing in Science \& Engineering}, 9(3), 90-95. doi:10.1109/MCSE.2007.55
+
+
+\bibitem{pedregosa2011scikit}
+Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel, O., ... \& Duchesnay, É. (2011). Scikit-learn: Machine learning in Python. \textit{Journal of Machine Learning Research}, 12, 2825-2830.
+
 
 \end{thebibliography}
 
