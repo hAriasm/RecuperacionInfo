@@ -105,7 +105,7 @@ En términos médicos, el Índice de Masa Corporal (BMI, por sus siglas en ingl�
 \begin{itemize}
   \item BMI: Es una medida del peso en relación con la altura. Un BMI alto, que indica sobrepeso u obesidad, se asocia con un mayor riesgo de desarrollar enfermedades cardiovasculares, diabetes tipo 2 y otros problemas de salud.
   \item Colesterol: El colesterol elevado, especialmente el LDL (colesterol "malo"), puede aumentar el riesgo de enfermedades cardíacas y accidentes cerebrovasculares.
- 
+
   \item Categorías de BMI
         \begin{itemize}
           \item Bajo peso: BMI $<$ 18.5
@@ -252,12 +252,11 @@ cholesterol\_level      &  151          & 150           & 300 \\ \hline
 
 
 \subsection{El sistema Cancer pulmonar}
-Basándonos en las tareas analíticas descritas en la  \autoref{sec:analiticas}, hemos desarrollado una propuesta, para explorar datos espacio-temporal sobre diagnostico de cancer pulmonar. La pruepuesta permite consultar, filtrar y visualizar datos sobre el diagnostico de cancer pulmonar. Los modulos y la arquictectura se ilusran en la \autoref{fig:pipeline}.
+Basándonos en las tareas analíticas descritas en la  \autoref{sec:analiticas}, hemos desarrollado una propuesta para explorar datos espacio-temporales sobre el diagnóstico de cáncer pulmonar. Esta propuesta permite consultar, filtrar y visualizar dichos datos de manera efectiva. Los módulos y la arquitectura de la solución se ilustran en la \autoref{fig:pipeline}.
 
-Los primeros pasos que hacemos es crear un data frame para usarlo como repositorio de los datos, primero eliminamos la columna id, porque es una columna que no se tomara encuenta para el procesamiento, solo es un correlativo. en el preprocesamiento validamos si tenemos datos duplicados con el metodo duplicated y luego el metodo sum para obtener la cantidad total, pero no encontramos datos duplicados .
+En primer lugar, creamos un data frame para utilizarlo como repositorio central de los datos. Eliminamos la columna 'id', ya que es un identificador correlativo que no se utilizará en el procesamiento posterior. Durante el preprocesamiento, verificamos la presencia de datos duplicados utilizando el método duplicated seguido de sum para obtener la cantidad total. No se encontraron datos duplicados.
 
-
-En la \autoref{tab:tipoAtributos} hacemos un analisis del tipo de atributos tenemos para luego usar tecnicas para la categorización, el la \autoref{tab:tipoVariable} mostramos el tipo de variables que tenemos. En la \autoref{tab:valoresNulos} mostramos que no tenemos valores nulos.
+En la \autoref{tab:tipoAtributos}realizamos un análisis del tipo de atributos disponibles, lo que nos permitirá aplicar técnicas de categorización más adelante.En la \autoref{tab:tipoVariable} se detalla el tipo de variables presentes en el conjunto de datos, y en la \autoref{tab:valoresNulos} confirmamos que no existen valores nulos.
 
 
 
@@ -354,8 +353,8 @@ Detalle de la aplicación
   \item Servidor: Google
   \item Librerias Principales; sklearn, matplotlib, pandas,seaborn, numpy
 \end{itemize}
-\href{https://colab.research.google.com/drive/1-HcDMOWJxGsakeZxqYCUc18EXPyz__4q?usp=sharing}{Codigo Colab} 
- 
+\href{https://colab.research.google.com/drive/1-HcDMOWJxGsakeZxqYCUc18EXPyz__4q?usp=sharing}{Codigo Colab}
+
 
 
 % use section* for acknowledgment
@@ -406,7 +405,7 @@ Centers for Disease Control and Prevention (CDC), ``Defining Adult Overweight an
 National Institutes of Health (NIH), ``Clinical Guidelines on the Identification, Evaluation, and Treatment of Overweight and Obesity in Adults,'' \emph{NIH}, 1998. [Online]. Available: https://www.nhlbi.nih.gov/files/docs/guidelines/obesity.pdf
 
 \end{thebibliography}
- 
+
 
 \end{document}
 
