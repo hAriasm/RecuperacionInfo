@@ -37,14 +37,16 @@ pdfkeywords={Computer Society, IEEEtran, journal, LaTeX, paper,
 \title{Visualización de datos: Caso Cáncer Pulmonar}
 
 
-\author{Jose~Perez Mamani,
-        and~Henrry~Arias Mamani% <-this % stops a space
+\author{Jose Edison~Perez Mamani,
+        and~Henrry Ivan~Arias Mamani% <-this % stops a space
 }
 
 
 \IEEEtitleabstractindextext{%
 \begin{abstract}
-The abstract goes here.
+El cáncer pulmonar sigue siendo una de las principales causas de mortalidad global debido a su diagnóstico tardío y a la baja tasa de supervivencia a cinco años. A pesar de los avances en tratamientos, la identificación temprana y el tratamiento personalizado siguen siendo un reto significativo. Este artículo explora cómo la ciencia de datos puede mejorar la comprensión de la enfermedad mediante el análisis de grandes volúmenes de datos clínicos y genómicos. Utilizando técnicas avanzadas como el PCA y  t-SNE, se busca identificar patrones y correlaciones que puedan contribuir a mejorar el diagnóstico.
+
+El estudio se enfoca en analizar factores demográficos y médicos que afectan la supervivencia de los pacientes con cáncer pulmonar, como la edad, el género, el estado de tabaquismo y el índice de masa corporal. El objetivo principal es llenar el vacío existente en la comprensión de cómo estos factores influyen en el tratamiento y la mortalidad de los pacientes. El artículo propone un análisis detallado que busca mejorar  la tasa de supervivencia mediante la identificación de patrones y correlaciones en los datos.
 \end{abstract}
 
 % Note that keywords are not normally used for peerreview papers.
@@ -57,6 +59,7 @@ Lung cancer, PCA, visualization analysis, T-SNE.
 % make the title area
 \maketitle
 \IEEEdisplaynontitleabstractindextext
+
 \IEEEpeerreviewmaketitle
 
 
@@ -288,9 +291,7 @@ Luego de hacer el preprocesamiento y procesamiento podemos realizar la matriz de
     \item \emph{Género y BMI:} Hay una fuerte correlación negativa entre ser de género masculino (gender\_Male) y tener un índice de masa corporal (BMI) clasificado como bajo peso (bmi\_Bajo peso). Esto sugiere que los hombres en este conjunto de datos tienen menos probabilidades de estar en la categoría de bajo peso.
     \item \emph{Colesterol y BMI:} Existe una fuerte correlación entre los niveles altos de colesterol (cholesterol\_Alto) y tener un BMI más alto, especialmente en las categorías de sobrepeso (bmi\_Sobrepeso) y obesidad (bmi\_Obesidad).
     \item \emph{Etapas del cáncer: }Las diferentes etapas del cáncer (cancer\_stage\_Stage I, Stage II, etc.) están correlacionadas positivamente entre sí, lo que indica que los pacientes que avanzan en una etapa del cáncer tienden a moverse a la siguiente de manera consecutiva.
-  \end{itemize}
-
-
+  \end{itemize} 
 
   \item \textbf{Correlaciones moderadas:}
   \begin{itemize}
