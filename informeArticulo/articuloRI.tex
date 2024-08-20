@@ -39,14 +39,7 @@ pdfkeywords={Computer Society, IEEEtran, journal, LaTeX, paper,
 
 \author{Jose~Perez Mamani,
         and~Henrry~Arias Mamani% <-this % stops a space
-\IEEEcompsocitemizethanks{\IEEEcompsocthanksitem M. Shell was with the Department
-of Electrical and Computer Engineering, Georgia Institute of Technology, Atlanta,
-GA, 30332.\protect\\
-% note need leading \protect in front of \\ to get a newline within \thanks as
-% \\ is fragile and will error, could use \hfil\break instead.
-E-mail: see http://www.michaelshell.org/contact.html
-\IEEEcompsocthanksitem J. Doe and J. Doe are with Anonymous University.}% <-this % stops a space
-\thanks{Manuscript received Agosto 18, 2005; revised August 18, 2014.}}
+}
 
 
 \IEEEtitleabstractindextext{%
@@ -56,8 +49,10 @@ The abstract goes here.
 
 % Note that keywords are not normally used for peerreview papers.
 \begin{IEEEkeywords}
-Lung cancer prediction, PCA, visualization analysis.
-\end{IEEEkeywords}}
+Lung cancer, PCA, visualization analysis, T-SNE.
+\end{IEEEkeywords}
+
+}
 
 % make the title area
 \maketitle
@@ -83,7 +78,7 @@ A pesar de los avances realizados en el tratamiento de del cáncer de pulmón, e
 
 \section{Trabajos relacionados}
 
-\cite{ferraz2017}, se investigó la influencia de factores pronósticos como la edad, el estadiamiento y la extensión del tumor en la supervivencia de mujeres con cáncer de mama, utilizando modelos de riesgos proporcionales de Cox y riesgos competitivos de Fine-Gray. Se analizaron los datos de una cohorte retrospectiva de 524 mujeres en Campinas, Brasil, diagnosticadas entre 1993 y 1995. Se aplicaron estos modelos para evaluar la influencia de los factores mencionados en la mortalidad específica por cáncer de mama y otras causas competidoras. Las curvas de supervivencia estimadas por Kaplan-Meier mostraron diferencias significativas en las muertes por cáncer de mama y por riesgos competidores, aunque la edad no fue un factor significativo en ninguno de los modelos.
+En el articulo \cite{ferraz2017}, se investigó la influencia de factores pronósticos como la edad, el estadiamiento y la extensión del tumor en la supervivencia de mujeres con cáncer de mama, utilizando modelos de riesgos proporcionales de Cox y riesgos competitivos de Fine-Gray. Se analizaron los datos de una cohorte retrospectiva de 524 mujeres en Campinas, Brasil, diagnosticadas entre 1993 y 1995. Se aplicaron estos modelos para evaluar la influencia de los factores mencionados en la mortalidad específica por cáncer de mama y otras causas competidoras. Las curvas de supervivencia estimadas por Kaplan-Meier mostraron diferencias significativas en las muertes por cáncer de mama y por riesgos competidores, aunque la edad no fue un factor significativo en ninguno de los modelos.
 
 El uso de los modelos de Cox y Fine-Gray como muestra \cite{ferraz2017} ofrece ventajas al permitir una estimación más precisa de los riesgos asociados al cáncer de mama y otras causas de muerte. Mientras que los modelos de Cox son útiles para evaluar el impacto de las covariables en la supervivencia, el modelo de Fine-Gray permite considerar la presencia de riesgos competidores, lo que ofrece una visión más realista del escenario clínico. Sin embargo, una desventaja es que la complejidad de estos modelos puede dificultar su interpretación y aplicación práctica en ciertos contextos. Además, aunque ambos modelos identificaron factores pronósticos similares, la ausencia de significancia de la edad en estos análisis sugiere que otros factores podrían ser más determinantes en la supervivencia de estas pacientes.
 
@@ -91,6 +86,63 @@ En el articulo \cite{arxiv14031949}, se implementado una combinación de Anális
 
 Los resultados obtenidos en el articulo  \cite{arxiv14031949} confirman la eficacia de la metodología propuesta, mostrando mejoras significativas en varias métricas de evaluación, incluyendo la precisión global, la tasa de falsos positivos, la precisión y el recall. En particular, se observó que la aplicación secuencial de PCA seguida por SMOTE permitió una mejora considerable en la exactitud del modelo, aumentando de un 60$\%$ a más del 80$\%$ después de las iteraciones de SMOTE. Estos hallazgos sugieren que la combinación de técnicas de reducción de dimensionalidad y remuestreo puede ser una estrategia efectiva para abordar problemas de desequilibrio de clases y características redundantes en conjuntos de datos médicos.
 
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=\linewidth]{imagenes/pipeline.png} % Asegúrate de que "pipeline.png" exista en la carpeta "imagenes"
+    \caption{Descripción general de pipeline de la propuesta para diagnosticar cancer pulmonar}
+    \label{fig:pipeline}
+\end{figure}
+
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=\linewidth]{imagenes/pca_biplot.png}
+    \caption{Resultado de la aplicación de PCA para reducir las variables a dos. Los vectores muestran el peso de cada variable por componente.}
+    \label{fig:pca}
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=\linewidth]{imagenes/tsne.png}
+    \caption{Resultado de la aplicación de t-SNE. Se pueden apreciar agrupaciones de características.}
+    \label{fig:tsne}
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=\linewidth]{imagenes/region.png}
+    \caption{Clusters según la región de Europa}
+    \label{fig:tsne_region}
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=\linewidth]{imagenes/bmi.png}
+    \caption{Clusters de acuerdo al índice de masa corporal (BMI)}
+    \label{fig:tsne_bmi}
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=\linewidth]{imagenes/cholesterol.png}
+    \caption{Clusters de acuerdo al nivel de colesterol}
+    \label{fig:tsne_cholesterol}
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=\linewidth]{imagenes/cancer_stage.png}
+    \caption{Clusters de acuerdo a la etapa diagnosticada de cáncer}
+    \label{fig:tsne_cancer_stage}
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=\linewidth]{imagenes/other_cancer.png}
+    \caption{Clusters de acuerdo a la presencia o no de otros tipos de cáncer}
+    \label{fig:tsne_other_cancer}
+\end{figure}
 
 
 \section{Marco Teórico}
@@ -180,9 +232,7 @@ El conjunto de datos utilizado en este artículo se descargó de Kaggle. Registr
 \caption{Descripción de características de la base de datos}
 \label{tab:caracteristicas}
 \end{table}
-
-
-
+ 
 
 \begin{table}[h!]
 \centering
@@ -277,66 +327,11 @@ int64                   & survived, other\_cancer, cirrhosis, asthma, hypertensi
 \end{table}
 
 
-\begin{figure}[htb]
-    \centering
-    \includegraphics[width=\linewidth]{imagenes/pipeline.png} % Asegúrate de que "pipeline.png" exista en la carpeta "imagenes"
-    \caption{Descripción general de pipeline de la propuesta para diagnosticar cancer pulmonar}
-    \label{fig:pipeline}
-\end{figure}
-
-
-\begin{figure}[htb]
-    \centering
-    \includegraphics[width=\linewidth]{imagenes/pca_biplot.png}
-    \caption{Resultado de la aplicación de PCA para reducir las variables a dos. Los vectores muestran el peso de cada variable por componente.}
-    \label{fig:pca}
-\end{figure}
-
-\begin{figure}[htb]
-    \centering
-    \includegraphics[width=\linewidth]{imagenes/tsne.png}
-    \caption{Resultado de la aplicación de t-SNE. Se pueden apreciar agrupaciones de características.}
-    \label{fig:tsne}
-\end{figure}
-
-\begin{figure}[htb]
-    \centering
-    \includegraphics[width=\linewidth]{imagenes/region.png}
-    \caption{Clusters según la región de Europa}
-    \label{fig:tsne_region}
-\end{figure}
-
-\begin{figure}[htb]
-    \centering
-    \includegraphics[width=\linewidth]{imagenes/bmi.png}
-    \caption{Clusters de acuerdo al índice de masa corporal (BMI)}
-    \label{fig:tsne_bmi}
-\end{figure}
-
-\begin{figure}[htb]
-    \centering
-    \includegraphics[width=\linewidth]{imagenes/cholesterol.png}
-    \caption{Clusters de acuerdo al nivel de colesterol}
-    \label{fig:tsne_cholesterol}
-\end{figure}
-
-\begin{figure}[htb]
-    \centering
-    \includegraphics[width=\linewidth]{imagenes/cancer_stage.png}
-    \caption{Clusters de acuerdo a la etapa diagnosticada de cáncer}
-    \label{fig:tsne_cancer_stage}
-\end{figure}
-
-\begin{figure}[htb]
-    \centering
-    \includegraphics[width=\linewidth]{imagenes/other_cancer.png}
-    \caption{Clusters de acuerdo a la presencia o no de otros tipos de cáncer}
-    \label{fig:tsne_other_cancer}
-\end{figure}
-
 
 \section{Diseño Visual}
+
 \section{Resultados}
+
 \section{Discusión}
 Según la imagen, podemos concluir que una persona con obesidad debería someterse a un chequeo preventivo de cáncer, ya que presenta una mayor probabilidad de desarrollar esta enfermedad.
 
@@ -353,22 +348,10 @@ Detalle de la aplicación
   \item Servidor: Google
   \item Librerias Principales; sklearn, matplotlib, pandas,seaborn, numpy
 \end{itemize}
-\href{https://colab.research.google.com/drive/1-HcDMOWJxGsakeZxqYCUc18EXPyz__4q?usp=sharing}{Codigo Colab}
+\href{https://colab.research.google.com/drive/1-HcDMOWJxGsakeZxqYCUc18EXPyz__4q?usp=sharing}{URL: Código  colab.research.google }
 
 
-
-% use section* for acknowledgment
-\ifCLASSOPTIONcompsoc
-  % The Computer Society usually uses the plural form
-  \section*{Acknowledgments}
-\else
-  % regular IEEE prefers the singular form
-  \section*{Acknowledgment}
-\fi
-
-
-The authors would like to thank...
-
+ 
 \ifCLASSOPTIONcaptionsoff
   \newpage
 \fi
