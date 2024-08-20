@@ -37,8 +37,9 @@ pdfkeywords={Computer Society, IEEEtran, journal, LaTeX, paper,
 \title{Visualización de datos: Caso Cáncer Pulmonar}
 
 
-\author{Jose Edison~Perez Mamani,
-        and~Henrry Ivan~Arias Mamani% <-this % stops a space
+\author{Recuperación de la Información - Profesora: Dra. Ana Maria Cuadros Valdivia \\
+
+Estudiantes:  Jose Edison~Perez Mamani  y ~Henrry Ivan~Arias Mamani% <-this % stops a space
 }
 
 
@@ -66,7 +67,7 @@ Lung cancer, PCA, visualization analysis, T-SNE.
 \ifCLASSOPTIONcompsoc
 \IEEEraisesectionheading{\section{Introduction}\label{sec:introduction}}
 \else
-\section{Introduction}
+\section{Introducción}
 \label{sec:introduction}
 \fi
 
@@ -284,7 +285,7 @@ int64                   & survived, other\_cancer, cirrhosis, asthma, hypertensi
 \label{tab:tipoAtributos}
 \end{table}
 
-Luego de hacer el preprocesamiento y procesamiento podemos realizar la matriz de  correlación como se muestra en la \autoref{fig:correlacion},   que muestra las relaciones entre diferentes variables en un conjunto de datos sobre cáncer pulmonar. Aquí tienes una interpretación detallada:
+Luego de hacer el preprocesamiento y procesamiento podemos realizar la matriz de  correlación como se muestra en la \autoref{fig:correlacion}, que muestra las relaciones entre diferentes variables en un conjunto de datos sobre cáncer pulmonar. Aquí tienes una interpretación detallada:
 \begin{itemize}
   \item \textbf{Correlaciones fuertes:}
   \begin{itemize}
@@ -292,14 +293,11 @@ Luego de hacer el preprocesamiento y procesamiento podemos realizar la matriz de
     \item \emph{Colesterol y BMI:} Existe una fuerte correlación entre los niveles altos de colesterol (cholesterol\_Alto) y tener un BMI más alto, especialmente en las categorías de sobrepeso (bmi\_Sobrepeso) y obesidad (bmi\_Obesidad).
     \item \emph{Etapas del cáncer: }Las diferentes etapas del cáncer (cancer\_stage\_Stage I, Stage II, etc.) están correlacionadas positivamente entre sí, lo que indica que los pacientes que avanzan en una etapa del cáncer tienden a moverse a la siguiente de manera consecutiva.
   \end{itemize}
-
   \item \textbf{Correlaciones moderadas:}
   \begin{itemize}
     \item \emph{Hipertensión y colesterol:} Hay una correlación moderada positiva entre tener hipertensión (hypertension) y altos niveles de colesterol, lo que podría indicar que las personas con presión arterial alta también tienen más probabilidades de tener colesterol elevado.
     \item \emph{Días de tratamiento y sobrevivencia:} Hay una correlación positiva entre los días de tratamiento (days\_of\_treatment) y la sobrevivencia (survived), lo que sugiere que un tratamiento más prolongado está asociado con una mayor probabilidad de sobrevivir.
   \end{itemize}
-
-
   \item \textbf{Correlaciones negativas:}
   \begin{itemize}
     \item \emph{Edad y tratamiento:} Existe una correlación negativa entre la edad (age) y algunos tipos de tratamiento, como la cirugía (treatment\_Surgery). Esto podría sugerir que a medida que las personas envejecen, es menos probable que se sometan a ciertos tratamientos invasivos.
