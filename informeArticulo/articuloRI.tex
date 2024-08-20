@@ -333,18 +333,33 @@ int64                   & survived, other\_cancer, cirrhosis, asthma, hypertensi
 
 Luego de hacer el preprocesamiento y procesamiento podemos realizar la matriz de  correlación como se muestra en la \autoref{fig:correlacion},   que muestra las relaciones entre diferentes variables en un conjunto de datos sobre cáncer pulmonar. Aquí tienes una interpretación detallada: 
 \begin{itemize}
-  \item Correlaciones fuertes:
-Género y BMI: Hay una fuerte correlación negativa entre ser de género masculino (gender\_Male) y tener un índice de masa corporal (BMI) clasificado como bajo peso (bmi\_Bajo peso). Esto sugiere que los hombres en este conjunto de datos tienen menos probabilidades de estar en la categoría de bajo peso.
-Colesterol y BMI: Existe una fuerte correlación entre los niveles altos de colesterol (cholesterol\_Alto) y tener un BMI más alto, especialmente en las categorías de sobrepeso (bmi\_Sobrepeso) y obesidad (bmi\_Obesidad).
-Etapas del cáncer: Las diferentes etapas del cáncer (cancer\_stage\_Stage I, Stage II, etc.) están correlacionadas positivamente entre sí, lo que indica que los pacientes que avanzan en una etapa del cáncer tienden a moverse a la siguiente de manera consecutiva.
-  \item Correlaciones moderadas:
-Hipertensión y colesterol: Hay una correlación moderada positiva entre tener hipertensión (hypertension) y altos niveles de colesterol, lo que podría indicar que las personas con presión arterial alta también tienen más probabilidades de tener colesterol elevado.
-Días de tratamiento y sobrevivencia: Hay una correlación positiva entre los días de tratamiento (days\_of\_treatment) y la sobrevivencia (survived), lo que sugiere que un tratamiento más prolongado está asociado con una mayor probabilidad de sobrevivir.
-  \item Correlaciones negativas:
-Edad y tratamiento: Existe una correlación negativa entre la edad (age) y algunos tipos de tratamiento, como la cirugía (treatment\_Surgery). Esto podría sugerir que a medida que las personas envejecen, es menos probable que se sometan a ciertos tratamientos invasivos.
-Survived y cancer\_stage: Hay una correlación negativa entre la sobrevivencia (survived) y las etapas avanzadas del cáncer (cancer\_stage\_Stage III y Stage IV), lo que es coherente con la idea de que las etapas más avanzadas del cáncer están asociadas con peores resultados en términos de sobrevivencia.
-  \item Correlaciones débiles o inexistentes:
-Regiones geográficas y características clínicas: Las correlaciones entre las regiones geográficas (region\_Eastern Europe, region\_Western Europe, etc.) y las características clínicas (como BMI, colesterol, etc.) son en su mayoría débiles o inexistentes, lo que sugiere que la ubicación geográfica no está fuertemente asociada con estas características en este conjunto de datos.
+  \item \textbf{Correlaciones fuertes:}
+  \begin{itemize}
+    \item \emph{Género y BMI:} Hay una fuerte correlación negativa entre ser de género masculino (gender\_Male) y tener un índice de masa corporal (BMI) clasificado como bajo peso (bmi\_Bajo peso). Esto sugiere que los hombres en este conjunto de datos tienen menos probabilidades de estar en la categoría de bajo peso.
+    \item \emph{Colesterol y BMI:} Existe una fuerte correlación entre los niveles altos de colesterol (cholesterol\_Alto) y tener un BMI más alto, especialmente en las categorías de sobrepeso (bmi\_Sobrepeso) y obesidad (bmi\_Obesidad).
+    \item \emph{Etapas del cáncer: }Las diferentes etapas del cáncer (cancer\_stage\_Stage I, Stage II, etc.) están correlacionadas positivamente entre sí, lo que indica que los pacientes que avanzan en una etapa del cáncer tienden a moverse a la siguiente de manera consecutiva.
+  \end{itemize}
+
+
+
+  \item \textbf{Correlaciones moderadas:}
+  \begin{itemize}
+    \item \emph{Hipertensión y colesterol:} Hay una correlación moderada positiva entre tener hipertensión (hypertension) y altos niveles de colesterol, lo que podría indicar que las personas con presión arterial alta también tienen más probabilidades de tener colesterol elevado.
+    \item \emph{Días de tratamiento y sobrevivencia:} Hay una correlación positiva entre los días de tratamiento (days\_of\_treatment) y la sobrevivencia (survived), lo que sugiere que un tratamiento más prolongado está asociado con una mayor probabilidad de sobrevivir.
+  \end{itemize}
+
+
+  \item \textbf{Correlaciones negativas:}
+  \begin{itemize}
+    \item \emph{Edad y tratamiento:} Existe una correlación negativa entre la edad (age) y algunos tipos de tratamiento, como la cirugía (treatment\_Surgery). Esto podría sugerir que a medida que las personas envejecen, es menos probable que se sometan a ciertos tratamientos invasivos.
+    \item \emph{Survived y cancer\_stage:} Hay una correlación negativa entre la sobrevivencia (survived) y las etapas avanzadas del cáncer (cancer\_stage\_Stage III y Stage IV), lo que es coherente con la idea de que las etapas más avanzadas del cáncer están asociadas con peores resultados en términos de
+  \end{itemize}
+sobrevivencia.
+  \item \textbf{Correlaciones débiles o inexistentes:}
+  \begin{itemize}
+    \item \emph{Regiones geográficas y características clínicas:} Las correlaciones entre las regiones geográficas (region\_Eastern Europe, region\_Western Europe, etc.) y las características clínicas (como BMI, colesterol, etc.) son en su mayoría débiles o inexistentes, lo que sugiere que la ubicación geográfica no está fuertemente asociada con estas características en este conjunto de datos.
+  \end{itemize}
+
 
 \end{itemize}
  
@@ -352,7 +367,7 @@ Regiones geográficas y características clínicas: Las correlaciones entre las 
 \begin{figure}[htb]
     \centering
     \includegraphics[width=\linewidth]{imagenes/MatrixCorrelacion.png}
-    \caption{Matriz de Correlación)}
+    \caption{Matriz de Correlación}
     \label{fig:correlacion}
 \end{figure}
 
