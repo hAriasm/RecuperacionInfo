@@ -98,8 +98,46 @@ El Análisis de Componentes Principales (PCA, por sus siglas en inglés) es una 
 
 t-Distributed Stochastic Neighbor Embedding (t-SNE) es una técnica de reducción de dimensionalidad no lineal que se utiliza principalmente para la visualización de datos de alta dimensionalidad. A diferencia de técnicas como PCA, que conservan la variabilidad global de los datos, t-SNE se enfoca en preservar las relaciones locales, es decir, la proximidad entre puntos en el espacio original. Lo hace al modelar las distancias entre pares de puntos usando distribuciones de probabilidad tanto en el espacio original como en el espacio de menor dimensión, y luego minimizando la divergencia de Kullback-Leibler entre estas distribuciones. Esto permite que t-SNE revele estructuras complejas y patrones ocultos en los datos que pueden ser difíciles de discernir con otras técnicas de reducción de dimensionalidad. Es ampliamente utilizado en la visualización de conjuntos de datos en áreas como la genética, la visión por computadora y el procesamiento del lenguaje natural \cite{maaten2008tsne}.
 
+El análisis de correlación tetracórica es una técnica estadística utilizada para estimar la correlación entre dos variables latentes continuas a partir de datos observados en forma de variables dicotómicas (binarias). Este tipo de correlación es útil cuando las variables subyacentes se consideran continuas, pero solo se pueden observar en dos categorías. La correlación tetracórica asume que las variables subyacentes tienen una distribución normal bivariante, y a partir de esta suposición, se estima la correlación que podría existir si se midieran de manera continua. Este método se aplica en áreas como psicometría, donde los cuestionarios a menudo generan respuestas binarias que pueden ser indicativas de rasgos subyacentes continuos \cite{olsson1979maximum}.
 
-El análisis de correlación tetracórica es una técnica estadística utilizada para estimar la correlación entre dos variables latentes continuas a partir de datos observados en forma de variables dicotómicas (binarias). Este tipo de correlación es útil cuando las variables subyacentes se consideran continuas, pero solo se pueden observar en dos categorías. La correlación tetracórica asume que las variables subyacentes tienen una distribución normal bivariante, y a partir de esta suposición, se estima la correlación que podría existir si se midieran de manera continua. Este método se aplica en áreas como psicometría, donde los cuestionarios a menudo generan respuestas binarias que pueden ser indicativas de rasgos subyacentes continuos (Olsson, 1979).
+\subsection{Categorización}
+En términos médicos, el Índice de Masa Corporal (BMI, por sus siglas en inglés) y el nivel de colesterol están relacionados en el sentido de que ambos son indicadores importantes de la salud cardiovascular y metabólica.
+\begin{itemize}
+  \item BMI: Es una medida del peso en relación con la altura. Un BMI alto, que indica sobrepeso u obesidad, se asocia con un mayor riesgo de desarrollar enfermedades cardiovasculares, diabetes tipo 2 y otros problemas de salud.
+  \item Colesterol: El colesterol elevado, especialmente el LDL (colesterol "malo"), puede aumentar el riesgo de enfermedades cardíacas y accidentes cerebrovasculares.
+ 
+  \item Categorías de BMI
+        \begin{itemize}
+          \item Bajo peso: BMI $<$ 18.5
+          \item Normal: BMI 18.5 - 24.9
+          \item Sobrepeso: BMI 25 - 29.9
+          \item Obesidad: BMI $\geq$ 30
+        \end{itemize}
+  \item Categorías de colesterol
+            \begin{itemize}
+              \item Colesterol total
+                    \begin{itemize}
+                      \item Deseable: < 200 mg/dL
+                      \item Límite superior: 200-239 mg/dL
+                      \item Alto: $ \geq $ 240 mg/dL
+                    \end{itemize}
+              \item LDL colesterol
+                    \begin{itemize}
+                      \item Óptimo: < 100 mg/dL
+                      \item Cercano al óptimo: 100-129 mg/dL
+                      \item Alto: 130-159 mg/dL
+                      \item Muy alto: $ \geq $  160 mg/dL
+                    \end{itemize}
+              \item HDL colesterol (colesterol "bueno")
+                    \begin{itemize}
+                      \item Bajo (riesgo alto): < 40 mg/dL
+                      \item Normal: 40-59 mg/dL
+                      \item Alto (beneficioso): $ \geq $ 60 mg/dL
+                    \end{itemize}
+            \end{itemize}
+\end{itemize}
+Estas categorías pueden ayudar a identificar patrones en los datos y establecer posibles correlaciones entre BMI y niveles de colesterol \cite{aha_colesterol}\cite{cdc_bmi}\cite{nih_bmi_colesterol}.
+
 
 
 
@@ -115,7 +153,7 @@ Después de identificar las principal retos a los que se enfrentan los expertos 
 \section{Propuesta}
 
 \subsection{Análisis de datos}
-El conjunto de datos utilizado en este artículo se descargó de Kaggle. Registra un total de 309 pacientes y un total de 16 síntomas de los pacientes. La \autoref{tab:caracteristicas}   muestra la atribución de los datos.
+El conjunto de datos utilizado en este artículo se descargó de Kaggle. Registra un total de 56000 pacientes y un total de 16 síntomas de los pacientes. La \autoref{tab:caracteristicas}   muestra la atribución de los datos.
 \begin{table}[h!]
 \centering
 \begin{tabularx}{\columnwidth}{|c|X|X|X|}
@@ -143,19 +181,6 @@ El conjunto de datos utilizado en este artículo se descargó de Kaggle. Registr
 \label{tab:caracteristicas}
 \end{table}
 
-\begin{table}[h!]
-\centering
-\begin{tabularx}{\columnwidth}{|l|X|}
-\hline
-\textbf{Tipo de dato}   & \textbf{Atributo}  \\ \hline
-float64                 & age, bmi    \\ \hline
-Category                & gender, country, treatment\_type, smoking\_status, family\_history, cancer\_stage  \\ \hline
-datetime64[ns]          & diagnosis\_date, end\_treatment\_date   \\ \hline
-int64                   & survived, other\_cancer, cirrhosis, asthma, hypertension, cholesterol\_level   \\ \hline
-\end{tabularx}
-\caption{Tipos de datos por atributos}
-\label{tab:tipoAtributos}
-\end{table}
 
 
 
@@ -196,12 +221,11 @@ Discretos                   & survived, other\_cancer, cirrhosis, asthma, hypert
 Categóricos                 & gender, country, treatment\_type diagnosis, family\_history  \\ \hline
 \end{tabularx}
 \caption{Tipos de datos por atributos}
-\label{tab:tipoAtributos}
+\label{tab:tipoDatos}
 \end{table}
-
 \begin{table}[h!]
 \centering
-\begin{tabularx}{\columnwidth}{|l|c|c|c|}
+\begin{tabular}{|l|c|c|c|}
 \hline
                         & \textbf{unique}   & \textbf{min}  & \textbf{max} \\ \hline
 id                      &  56000        & 1             & 56000     \\ \hline
@@ -221,13 +245,34 @@ cirrhosis               &  2            & 0             & 1 \\ \hline
 asthma                  &  2            & 0             & 1 \\ \hline
 hypertension            &  2            & 0             & 1 \\ \hline
 cholesterol\_level      &  151          & 150           & 300 \\ \hline
-\end{tabularx}
+\end{tabular}
 \caption{Valores únicos, mínimos y máximos por atributo}
-\label{tab:tipoAtributos}
+\label{tab:valoresUnicos}
 \end{table}
+
 
 \subsection{El sistema Cancer pulmonar}
 Basándonos en las tareas analíticas descritas en la  \autoref{sec:analiticas}, hemos desarrollado una propuesta, para explorar datos espacio-temporal sobre diagnostico de cancer pulmonar. La pruepuesta permite consultar, filtrar y visualizar datos sobre el diagnostico de cancer pulmonar. Los modulos y la arquictectura se ilusran en la \autoref{fig:pipeline}.
+
+Los primeros pasos que hacemos es crear un data frame para usarlo como repositorio de los datos, primero eliminamos la columna id, porque es una columna que no se tomara encuenta para el procesamiento, solo es un correlativo. en el preprocesamiento validamos si tenemos datos duplicados con el metodo duplicated y luego el metodo sum para obtener la cantidad total, pero no encontramos datos duplicados .
+
+
+En la \autoref{tab:tipoAtributos} hacemos un analisis del tipo de atributos tenemos para luego usar tecnicas para la categorización, el la \autoref{tab:tipoDatos} mostramos 
+
+
+\begin{table}[h!]
+\centering
+\begin{tabularx}{\columnwidth}{|l|X|}
+\hline
+\textbf{Tipo de dato}   & \textbf{Atributo}  \\ \hline
+float64                 & age, bmi    \\ \hline
+Category                & gender, country, treatment\_type, smoking\_status, family\_history, cancer\_stage  \\ \hline
+datetime64[ns]          & diagnosis\_date, end\_treatment\_date   \\ \hline
+int64                   & survived, other\_cancer, cirrhosis, asthma, hypertension, cholesterol\_level   \\ \hline
+\end{tabularx}
+\caption{Tipos de datos por atributos}
+\label{tab:tipoAtributos}
+\end{table}
 
 
 \begin{figure}[htb]
@@ -241,7 +286,7 @@ Basándonos en las tareas analíticas descritas en la  \autoref{sec:analiticas},
 \section{Diseño Visual}
 \section{Resultados}
 \section{Discusión}
-
+Según la imagen, podemos concluir que una persona con obesidad debería someterse a un chequeo preventivo de cáncer, ya que presenta una mayor probabilidad de desarrollar esta enfermedad.
 
 \section{Conclusion}
 The conclusion goes here.
@@ -249,13 +294,15 @@ The conclusion goes here.
 
 
 \appendices
-\section{Proof of the First Zonklar Equation}
-Appendix one text goes here.
-
-% you can choose not to have a title for an appendix
-% if you want by leaving the argument blank
-\section{}
-Appendix two text goes here.
+\section{Colab TrabajoCancerPulmon v2.ipynb}
+Detalle de la aplicación
+\begin{itemize}
+  \item Lenguaje de Programación: Python
+  \item Servidor: Google
+  \item Librerias Principales; sklearn, matplotlib, pandas,seaborn, numpy
+\end{itemize}
+\href{https://colab.research.google.com/drive/1-HcDMOWJxGsakeZxqYCUc18EXPyz__4q?usp=sharing}{Codigo Colab} 
+ 
 
 
 % use section* for acknowledgment
@@ -289,26 +336,24 @@ Author(s) Name, "An Analysis of Machine Learning Models for Efficient Data Proce
 \bibitem{jolliffe2016pca}
 I.~T. Jolliffe and J.~Cadima, ``Principal component analysis: a review and recent developments,'' \emph{Philosophical Transactions of the Royal Society A: Mathematical, Physical and Engineering Sciences}, vol. 374, no. 2065, p. 20150202, 2016.
 
-
 \bibitem{maaten2008tsne}
 L.~van~der Maaten and G.~Hinton, ``Visualizing data using t-{SNE},'' \emph{Journal of Machine Learning Research}, vol.~9, pp. 2579--2605, 2008.
 
 \bibitem{olsson1979maximum}
 U.~Olsson, ``Maximum likelihood estimation of the polychoric correlation coefficient,'' \emph{Psychometrika}, vol.~44, no.~4, pp. 443--460, 1979.
 
+
+\bibitem{aha_colesterol}
+American Heart Association (AHA), ``Guideline on the Treatment of Blood Cholesterol to Reduce Atherosclerotic Cardiovascular Risk in Adults,'' \emph{American College of Cardiology}, 2018. [Online]. Available: https://www.heart.org/en/professional/education/guidelines-for-treatment-of-blood-cholesterol
+
+\bibitem{cdc_bmi}
+Centers for Disease Control and Prevention (CDC), ``Defining Adult Overweight and Obesity,'' \emph{CDC}, 2020. [Online]. Available: https://www.cdc.gov/obesity/adult/defining.html
+
+\bibitem{nih_bmi_colesterol}
+National Institutes of Health (NIH), ``Clinical Guidelines on the Identification, Evaluation, and Treatment of Overweight and Obesity in Adults,'' \emph{NIH}, 1998. [Online]. Available: https://www.nhlbi.nih.gov/files/docs/guidelines/obesity.pdf
+
 \end{thebibliography}
-
-\begin{IEEEbiography}{Michael Shell}
-Biography text here.
-\end{IEEEbiography}
-
-\begin{IEEEbiographynophoto}{John Doe}
-Biography text here.
-\end{IEEEbiographynophoto}
-
-\begin{IEEEbiographynophoto}{Jane Doe}
-Biography text here.
-\end{IEEEbiographynophoto}
+ 
 
 \end{document}
 

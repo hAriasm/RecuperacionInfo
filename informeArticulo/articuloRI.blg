@@ -8,9 +8,13 @@ Warning--I didn't find a database entry for "ferraz2017"
 Warning--I didn't find a database entry for "arxiv14031949"
 Warning--I didn't find a database entry for "jolliffe2016pca"
 Warning--I didn't find a database entry for "maaten2008tsne"
+Warning--I didn't find a database entry for "olsson1979maximum"
+Warning--I didn't find a database entry for "aha_colesterol"
+Warning--I didn't find a database entry for "cdc_bmi"
+Warning--I didn't find a database entry for "nih_bmi_colesterol"
 You've used 0 entries,
             2773 wiz_defined-function locations,
-            595 strings with 4884 characters,
+            599 strings with 4940 characters,
 and the built_in function-call counts, 33 in all, are:
 = -- 0
 > -- 0
