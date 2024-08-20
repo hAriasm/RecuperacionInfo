@@ -150,6 +150,45 @@ El Análisis de Componentes Principales (PCA, por sus siglas en inglés) es una 
 
 t-Distributed Stochastic Neighbor Embedding (t-SNE) es una técnica de reducción de dimensionalidad no lineal que se utiliza principalmente para la visualización de datos de alta dimensionalidad. A diferencia de técnicas como PCA, que conservan la variabilidad global de los datos, t-SNE se enfoca en preservar las relaciones locales, es decir, la proximidad entre puntos en el espacio original. Lo hace al modelar las distancias entre pares de puntos usando distribuciones de probabilidad tanto en el espacio original como en el espacio de menor dimensión, y luego minimizando la divergencia de Kullback-Leibler entre estas distribuciones. Esto permite que t-SNE revele estructuras complejas y patrones ocultos en los datos que pueden ser difíciles de discernir con otras técnicas de reducción de dimensionalidad. Es ampliamente utilizado en la visualización de conjuntos de datos en áreas como la genética, la visión por computadora y el procesamiento del lenguaje natural \cite{maaten2008tsne}.
 
+
+\begin{table}[h!]
+\centering
+\begin{tabularx}{\columnwidth}{|l|X|}
+\hline
+\textbf{Tipo de variable}       & \textbf{Atributo}                 \\ \hline
+Continuos                   & age, bmi, cholesterol\_level     \\ \hline
+Discretos                   & survived, other\_cancer, cirrhosis, asthma, hypertension , smoking\_status, cancer\_stage, \_date, end\_treatment\_date \\ \hline
+Categóricos                 & gender, country, treatment\_type diagnosis, family\_history  \\ \hline
+\end{tabularx}
+\caption{Tipos de variable por atributos}
+\label{tab:tipoVariable}
+\end{table}
+\begin{table}[h!]
+\centering
+\begin{tabular}{|l|c|c|c|}
+\hline
+                        & \textbf{unique}   & \textbf{min}  & \textbf{max} \\ \hline
+id                      &  56000        & 1             & 56000     \\ \hline
+age                     &  79           & 15            & 101       \\ \hline
+bmi                     &  291          & 16            & 45        \\ \hline
+gender                  &  2            & NAN           & NAN       \\ \hline
+country                 &  27           & NAN           & NAN       \\ \hline
+treatment\_type         &  4            & NAN           & NAN \\ \hline
+smoking\_status         &  4            & NAN           & NAN \\ \hline
+family\_history         &  2            & NAN           & NAN \\ \hline
+cancer\_stage           &  4            & NAN           &  NAN\\ \hline
+diagnosis\_date         & 3651          & 2014-06-02    & 2024-05-30\\ \hline
+end\_treatment\_date    &  4097         & 2014-12-02    & 2026-05-15 \\ \hline
+survived                &  2            &  0            & 1\\ \hline
+other\_cancer           &  2            & 0             & 1 \\ \hline
+cirrhosis               &  2            & 0             & 1 \\ \hline
+asthma                  &  2            & 0             & 1 \\ \hline
+hypertension            &  2            & 0             & 1 \\ \hline
+cholesterol\_level      &  151          & 150           & 300 \\ \hline
+\end{tabular}
+\caption{Valores únicos, mínimos y máximos por atributo}
+\label{tab:valoresUnicos}
+\end{table}
 El análisis de correlación tetracórica es una técnica estadística utilizada para estimar la correlación entre dos variables latentes continuas a partir de datos observados en forma de variables dicotómicas (binarias). Este tipo de correlación es útil cuando las variables subyacentes se consideran continuas, pero solo se pueden observar en dos categorías. La correlación tetracórica asume que las variables subyacentes tienen una distribución normal bivariante, y a partir de esta suposición, se estima la correlación que podría existir si se midieran de manera continua. Este método se aplica en áreas como psicometría, donde los cuestionarios a menudo generan respuestas binarias que pueden ser indicativas de rasgos subyacentes continuos \cite{olsson1979maximum}.
 
 \subsection{Categorización}
@@ -191,8 +230,6 @@ En términos médicos, el Índice de Masa Corporal (BMI, por sus siglas en ingl�
 Estas categorías pueden ayudar a identificar patrones en los datos y establecer posibles correlaciones entre BMI y niveles de colesterol \cite{aha_colesterol}\cite{cdc_bmi}\cite{nih_bmi_colesterol}.
 
 
-
-
 \section{Análisis de tareas}
 \label{sec:analiticas}
 Después de identificar las principal retos a los que se enfrentan los expertos y comprender como se estructuran los datos, realizamos una serie de cuestiones que se deben de investigar. Ha quedado claro que los expertos están interesados en comprender la dinámica del cancer pulmonar mediante análisis de patrones. A partir de las revisiones en clase, compilamos la siguiente lista de tareas analíticas:
@@ -205,7 +242,8 @@ Después de identificar las principal retos a los que se enfrentan los expertos 
 \section{Propuesta}
 
 \subsection{Análisis de datos}
-El conjunto de datos utilizado en este artículo se descargó de Kaggle. Registra un total de 56000 pacientes y un total de 16 síntomas de los pacientes. La \autoref{tab:caracteristicas}   muestra la atribución de los datos.
+El conjunto de datos utilizado en este artículo se descargó de Kaggle. Registra un total de 56000 pacientes y un total de 16 síntomas de los pacientes. La \autoref{tab:caracteristicas}   muestra la atribución de los datos donde mostramos el atributo, su descripcion y un ejemplo de datos que tiene cada atributo.
+
 \begin{table}[h!]
 \centering
 \begin{tabularx}{\columnwidth}{|c|X|X|X|}
@@ -233,6 +271,7 @@ El conjunto de datos utilizado en este artículo se descargó de Kaggle. Registr
 \label{tab:caracteristicas}
 \end{table}
  
+ En \autoref{tab:valoresUnicos} se presentan los valores únicos, mínimos y máximos de cada atributo. En los casos en que no se encontró información para un atributo específico, se ha indicado con "NAN".
 
 \begin{table}[h!]
 \centering
@@ -260,45 +299,6 @@ cholesterol\_level      &  0 \\ \hline
 \label{tab:valoresNulos}
 \end{table}
 
-
-\begin{table}[h!]
-\centering
-\begin{tabularx}{\columnwidth}{|l|X|}
-\hline
-\textbf{Tipo de variable}       & \textbf{Atributo}                 \\ \hline
-Continuos                   & age, bmi, cholesterol\_level     \\ \hline
-Discretos                   & survived, other\_cancer, cirrhosis, asthma, hypertension , smoking\_status, cancer\_stage, \_date, end\_treatment\_date \\ \hline
-Categóricos                 & gender, country, treatment\_type diagnosis, family\_history  \\ \hline
-\end{tabularx}
-\caption{Tipos de variable por atributos}
-\label{tab:tipoVariable}
-\end{table}
-\begin{table}[h!]
-\centering
-\begin{tabular}{|l|c|c|c|}
-\hline
-                        & \textbf{unique}   & \textbf{min}  & \textbf{max} \\ \hline
-id                      &  56000        & 1             & 56000     \\ \hline
-age                     &  79           & 15            & 101       \\ \hline
-bmi                     &  291          & 16            & 45        \\ \hline
-gender                  &  2            & NAN           & NAN       \\ \hline
-country                 &  27           & NAN           & NAN       \\ \hline
-treatment\_type         &  4            & NAN           & NAN \\ \hline
-smoking\_status         &  4            & NAN           & NAN \\ \hline
-family\_history         &  2            & NAN           & NAN \\ \hline
-cancer\_stage           &  4            & NAN           &  NAN\\ \hline
-diagnosis\_date         & 3651          & 2014-06-02    & 2024-05-30\\ \hline
-end\_treatment\_date    &  4097         & 2014-12-02    & 2026-05-15 \\ \hline
-survived                &  2            &  0            & 1\\ \hline
-other\_cancer           &  2            & 0             & 1 \\ \hline
-cirrhosis               &  2            & 0             & 1 \\ \hline
-asthma                  &  2            & 0             & 1 \\ \hline
-hypertension            &  2            & 0             & 1 \\ \hline
-cholesterol\_level      &  151          & 150           & 300 \\ \hline
-\end{tabular}
-\caption{Valores únicos, mínimos y máximos por atributo}
-\label{tab:valoresUnicos}
-\end{table}
 
 
 \subsection{El sistema Cancer pulmonar}
@@ -333,7 +333,7 @@ int64                   & survived, other\_cancer, cirrhosis, asthma, hypertensi
 \section{Resultados}
 
 \section{Discusión}
-Según la imagen, podemos concluir que una persona con obesidad debería someterse a un chequeo preventivo de cáncer, ya que presenta una mayor probabilidad de desarrollar esta enfermedad.
+Según la \autoref{fig:tsne_cholesterol}, podemos demuestran que una persona con nivel de colesterol superior debería someterse a un chequeo preventivo de cáncer, porque presenta una mayor probabilidad de desarrollar  cáncer pulmonar.
 
 \section{Conclusion}
 The conclusion goes here.
