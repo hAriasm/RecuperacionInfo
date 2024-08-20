@@ -1,5 +1,6 @@
 # RecuperacionInfo
 Proyecto Final de Recuperación de la Información
-URL youtube:
 
-https://www.youtube.com/watch?v=_syi5kFCRqE
+URL youtube:
+https://youtu.be/68WisQIrYSQ
+
