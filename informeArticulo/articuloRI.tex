@@ -95,56 +95,6 @@ Los resultados obtenidos en el articulo  \cite{arxiv14031949} confirman la efica
 \end{figure}
 
 
-\begin{figure}[htb]
-    \centering
-    \includegraphics[width=\linewidth]{imagenes/pca_biplot.png}
-    \caption{Resultado de la aplicación de PCA para reducir las variables a dos. Los vectores muestran el peso de cada variable por componente.}
-    \label{fig:pca}
-\end{figure}
-
-\begin{figure}[htb]
-    \centering
-    \includegraphics[width=\linewidth]{imagenes/tsne.png}
-    \caption{Resultado de la aplicación de t-SNE. Se pueden apreciar agrupaciones de características.}
-    \label{fig:tsne}
-\end{figure}
-
-\begin{figure}[htb]
-    \centering
-    \includegraphics[width=\linewidth]{imagenes/region.png}
-    \caption{Clusters según la región de Europa}
-    \label{fig:tsne_region}
-\end{figure}
-
-\begin{figure}[htb]
-    \centering
-    \includegraphics[width=\linewidth]{imagenes/bmi.png}
-    \caption{Clusters de acuerdo al índice de masa corporal (BMI)}
-    \label{fig:tsne_bmi}
-\end{figure}
-
-\begin{figure}[htb]
-    \centering
-    \includegraphics[width=\linewidth]{imagenes/cholesterol.png}
-    \caption{Clusters de acuerdo al nivel de colesterol}
-    \label{fig:tsne_cholesterol}
-\end{figure}
-
-\begin{figure}[htb]
-    \centering
-    \includegraphics[width=\linewidth]{imagenes/cancer_stage.png}
-    \caption{Clusters de acuerdo a la etapa diagnosticada de cáncer}
-    \label{fig:tsne_cancer_stage}
-\end{figure}
-
-\begin{figure}[htb]
-    \centering
-    \includegraphics[width=\linewidth]{imagenes/other_cancer.png}
-    \caption{Clusters de acuerdo a la presencia o no de otros tipos de cáncer}
-    \label{fig:tsne_other_cancer}
-\end{figure}
-
-
 \section{Marco Teórico}
 El Análisis de Componentes Principales (PCA, por sus siglas en inglés) es una técnica estadística de reducción de dimensionalidad utilizada para transformar un conjunto de variables posiblemente correlacionadas en un conjunto de variables no correlacionadas, conocidas como componentes principales. Cada componente principal es una combinación lineal de las variables originales, capturando la mayor variabilidad posible en los datos. PCA se basa en el cálculo de vectores propios y valores propios de la matriz de covarianza del conjunto de datos, donde los vectores propios determinan la dirección de las nuevas dimensiones y los valores propios indican la cantidad de varianza capturada por cada componente. Esta técnica es especialmente útil en aplicaciones con datos de alta dimensionalidad, como el análisis de imágenes y genética, al reducir el número de dimensiones y mejorar el rendimiento de los modelos predictivos \cite{jolliffe2016pca}.
 
@@ -331,7 +281,7 @@ int64                   & survived, other\_cancer, cirrhosis, asthma, hypertensi
 \label{tab:tipoAtributos}
 \end{table}
 
-Luego de hacer el preprocesamiento y procesamiento podemos realizar la matriz de  correlación como se muestra en la \autoref{fig:correlacion},   que muestra las relaciones entre diferentes variables en un conjunto de datos sobre cáncer pulmonar. Aquí tienes una interpretación detallada: 
+Luego de hacer el preprocesamiento y procesamiento podemos realizar la matriz de  correlación como se muestra en la \autoref{fig:correlacion},   que muestra las relaciones entre diferentes variables en un conjunto de datos sobre cáncer pulmonar. Aquí tienes una interpretación detallada:
 \begin{itemize}
   \item \textbf{Correlaciones fuertes:}
   \begin{itemize}
@@ -362,7 +312,7 @@ sobrevivencia.
 
 
 \end{itemize}
- 
+
 
 \begin{figure}[htb]
     \centering
@@ -439,8 +389,29 @@ Diagramas de Violín &  &  & X \\ \hline
 
 En esta sección se presentan los resultados obtenidos tras aplicar la técnica de t-SNE (t-distributed Stochastic Neighbor Embedding) a los datos del estudio, permitiendo visualizar la distribución de los pacientes en función de diferentes variables. Las figuras \ref{fig:tsne_bmi}, \ref{fig:tsne_cancer_stage}, y \ref{fig:tsne_other_cancer} muestran las visualizaciones en dos dimensiones de los datos, coloreadas según categorías de BMI, etapas del cáncer y presencia de otros tipos de cáncer, respectivamente.
 
+\subsection{Resultados al aplicar PCA}
 
-\subsection{Interpretación de las Gráficas de t-SNE}
+El análisis de componentes principales (PCA) fue realizado para reducir la dimensionalidad del conjunto de datos y capturar las principales fuentes de variación en las variables originales. En este caso, se seleccionaron dos componentes principales (PC1 y PC2) que explican gran parte de la varianza en los datos.
+
+Las cargas de las variables en los componentes principales indican la dirección y magnitud de la contribución de cada variable a esos componentes. A continuación, se presentan algunas observaciones clave sobre los resultados obtenidos:
+
+\begin{itemize}
+
+    \item \textbf{Historial familiar:} Las variables \texttt{family\_history\_Yes} y \texttt{family\_history\_No} muestran cargas opuestas en PC2, indicando que el historial familiar tiene una influencia significativa en esta dimensión.
+
+    \item \textbf{Índice de Masa Corporal (IMC - BMI):} Las variables relacionadas con el IMC (\texttt{bmi\_Bajo peso}, \texttt{bmi\_Normal}, \texttt{bmi\_Sobrepeso} y \texttt{bmi\_Obesidad}) tienen cargas sustanciales en PC1, particularmente \texttt{bmi\_Obesidad} y \texttt{bmi\_Normal}, sugiriendo que el IMC es un factor clave en la primera dimensión principal.
+
+    \item \textbf{Colesterol:} Las variables \texttt{cholesterol\_Deseable} y \texttt{cholesterol\_Alto} también muestran cargas significativas en PC1, indicando que los niveles de colesterol son relevantes en la variación capturada por esta dimensión.
+
+    \item \textbf{Etapa del cáncer:} Las variables que representan las diferentes etapas del cáncer (\texttt{cancer\_stage\_Stage I}, \texttt{cancer\_stage\_Stage II}, \texttt{cancer\_stage\_Stage III} y \texttt{cancer\_stage\_Stage IV}) tienen cargas menores en ambas dimensiones principales, lo que sugiere que, aunque estas variables contribuyen a la varianza en los datos, su influencia en las primeras dos dimensiones principales es limitada.
+
+    \item \textbf{Supervivencia:} La variable \texttt{survived} tiene una carga pequeña en ambas dimensiones, lo que podría indicar que la supervivencia no está fuertemente correlacionada con las otras variables en las primeras dos dimensiones principales.
+\end{itemize}
+
+Estos resultados del PCA ayudan a identificar las variables más influyentes en el conjunto de datos y ofrecen una comprensión más profunda de cómo diferentes factores pueden estar interrelacionados en el contexto del cáncer de pulmón. En particular, el IMC y los niveles de colesterol parecen ser componentes críticos en la variación observada en los datos.
+
+
+\subsection{Resultados al aplicar t-SNE}
 
 Las gráficas generadas por t-SNE revelan la distribución de los pacientes en función de las variables BMI, etapas del cáncer y presencia de otros tipos de cáncer en un espacio de dos dimensiones. Se destacan los siguientes aspectos:
 
@@ -456,7 +427,61 @@ Las gráficas generadas por t-SNE revelan la distribución de los pacientes en f
 
 La diferenciación observada en las gráficas sugiere que tanto el BMI, la etapa del cáncer y la presencia de otros tipos de cáncer juegan roles críticos en la evolución y tratamiento de los pacientes con cáncer de pulmón. Estos hallazgos justifican un análisis más profundo de cada subgrupo, considerando otras variables relevantes para entender mejor su influencia en la supervivencia y en la respuesta al tratamiento.
 
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=\linewidth]{imagenes/pca_biplot.png}
+    \caption{Resultado de la aplicación de PCA para reducir las variables a dos. Los vectores muestran el peso de cada variable por componente.}
+    \label{fig:pca}
+\end{figure}
 
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=\linewidth]{imagenes/tsne.png}
+    \caption{Resultado de la aplicación de t-SNE. Se pueden apreciar agrupaciones de características.}
+    \label{fig:tsne}
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=\linewidth]{imagenes/region.png}
+    \caption{Clusters según la región de Europa}
+    \label{fig:tsne_region}
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=\linewidth]{imagenes/bmi.png}
+    \caption{Clusters de acuerdo al índice de masa corporal (BMI)}
+    \label{fig:tsne_bmi}
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=\linewidth]{imagenes/cholesterol.png}
+    \caption{Clusters de acuerdo al nivel de colesterol}
+    \label{fig:tsne_cholesterol}
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=\linewidth]{imagenes/cancer_stage.png}
+    \caption{Clusters de acuerdo a la etapa diagnosticada de cáncer}
+    \label{fig:tsne_cancer_stage}
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=\linewidth]{imagenes/other_cancer.png}
+    \caption{Clusters de acuerdo a la presencia o no de otros tipos de cáncer}
+    \label{fig:tsne_other_cancer}
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=\linewidth]{imagenes/tsne_bmi2.png}
+    \caption{Clusters de acuerdo al índice de masa corporal (BMI) en una iteración más acotada}
+    \label{fig:tsne_bmi2}
+\end{figure}
 
 \section{Discusión}
 Según la \autoref{fig:tsne_cholesterol}, podemos demuestran que una persona con nivel de colesterol superior debería someterse a un chequeo preventivo de cáncer, porque presenta una mayor probabilidad de desarrollar  cáncer pulmonar.
