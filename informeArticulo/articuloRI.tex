@@ -215,13 +215,13 @@ cholesterol\_level      &  0 \\ \hline
 \centering
 \begin{tabularx}{\columnwidth}{|l|X|}
 \hline
-\textbf{Tipo de dato}       & \textbf{Atributo}                 \\ \hline
+\textbf{Tipo de variable}       & \textbf{Atributo}                 \\ \hline
 Continuos                   & age, bmi, cholesterol\_level     \\ \hline
 Discretos                   & survived, other\_cancer, cirrhosis, asthma, hypertension , smoking\_status, cancer\_stage, \_date, end\_treatment\_date \\ \hline
 Categóricos                 & gender, country, treatment\_type diagnosis, family\_history  \\ \hline
 \end{tabularx}
-\caption{Tipos de datos por atributos}
-\label{tab:tipoDatos}
+\caption{Tipos de variable por atributos}
+\label{tab:tipoVariable}
 \end{table}
 \begin{table}[h!]
 \centering
@@ -257,7 +257,10 @@ Basándonos en las tareas analíticas descritas en la  \autoref{sec:analiticas},
 Los primeros pasos que hacemos es crear un data frame para usarlo como repositorio de los datos, primero eliminamos la columna id, porque es una columna que no se tomara encuenta para el procesamiento, solo es un correlativo. en el preprocesamiento validamos si tenemos datos duplicados con el metodo duplicated y luego el metodo sum para obtener la cantidad total, pero no encontramos datos duplicados .
 
 
-En la \autoref{tab:tipoAtributos} hacemos un analisis del tipo de atributos tenemos para luego usar tecnicas para la categorización, el la \autoref{tab:tipoDatos} mostramos 
+En la \autoref{tab:tipoAtributos} hacemos un analisis del tipo de atributos tenemos para luego usar tecnicas para la categorización, el la \autoref{tab:tipoVariable} mostramos el tipo de variables que tenemos. En la \autoref{tab:valoresNulos} mostramos que no tenemos valores nulos.
+
+
+
 
 
 \begin{table}[h!]
