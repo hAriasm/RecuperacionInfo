@@ -234,9 +234,9 @@ Estas categorías pueden ayudar a identificar patrones en los datos y establecer
 \label{sec:analiticas}
 Después de identificar las principal retos a los que se enfrentan los expertos y comprender como se estructuran los datos, realizamos una serie de cuestiones que se deben de investigar. Ha quedado claro que los expertos están interesados en comprender la dinámica del cancer pulmonar mediante análisis de patrones. A partir de las revisiones en clase, compilamos la siguiente lista de tareas analíticas:
 \begin{itemize}
-\item Factores que influyen en el cáncer pulmonar (T1): ¿Qué factores influyen en el diagnostico del cáncer pulmonar? ¿Cómo afectan estos factores al diagnostico de pacientes? ¿Por qué algunos factores tienen un impacto más significativo que otros el diagnostico de la enfermedad?
-\item Análisis de pacientes con diagnósticos y comportamiento (T2): ¿Cómo varían los comportamientos y patrones entre pacientes con diferentes diagnósticos de cáncer pulmonar? ¿Existen diferencias notables en el pronóstico y evolución entre distintos grupos de pacientes?
-\item Distribución de variables clave (T3): ¿Cuál es la distribución de las variables principales en los pacientes con cáncer pulmonar? ¿Cómo influye esta distribución en la dinámica y el tratamiento del cáncer pulmonar?
+\item T1: Factores que influyen en el cáncer pulmonar (T1): ¿Qué factores influyen en el diagnostico del cáncer pulmonar? ¿Cómo afectan estos factores al diagnostico de pacientes? ¿Por qué algunos factores tienen un impacto más significativo que otros el diagnostico de la enfermedad?
+\item T2: Análisis de pacientes con diagnósticos y comportamiento (T2): ¿Cómo varían los comportamientos y patrones entre pacientes con diferentes diagnósticos de cáncer pulmonar? ¿Existen diferencias notables en el pronóstico y evolución entre distintos grupos de pacientes?
+\item T3: Distribución de variables clave (T3): ¿Cuál es la distribución de las variables principales en los pacientes con cáncer pulmonar? ¿Cómo influye esta distribución en la dinámica y el tratamiento del cáncer pulmonar?
 \end{itemize}
 
 \section{Propuesta}
@@ -270,7 +270,7 @@ El conjunto de datos utilizado en este artículo se descargó de Kaggle. Registr
 \caption{Descripción de características de la base de datos}
 \label{tab:caracteristicas}
 \end{table}
- 
+
  En \autoref{tab:valoresUnicos} se presentan los valores únicos, mínimos y máximos de cada atributo. En los casos en que no se encontró información para un atributo específico, se ha indicado con "NAN".
 
 \begin{table}[h!]
@@ -329,6 +329,67 @@ int64                   & survived, other\_cancer, cirrhosis, asthma, hypertensi
 
 
 \section{Diseño Visual}
+En este capítulo, se describe el diseño visual desarrollado para explorar la influencia de diferentes variables en el cáncer de pulmón. El diseño se centra en tres tareas principales (T1, T2, T3), y cada una se apoya en componentes visuales específicos que permiten un análisis interactivo y detallado de los datos.
+
+\begin{itemize}
+\item T1:
+Para comprender los factores que influyen en el cáncer de pulmón, se utilizan gráficos de correlación, diagramas de dispersión, y visualizaciones de importancia de variables. Estos componentes permiten observar las relaciones entre variables, como el estado de tabaquismo, el historial familiar, y el índice de masa corporal (BMI) con la probabilidad de desarrollar cáncer de pulmón.
+
+\begin{itemize}
+    \item \textbf{Gráfico de Correlación}: Muestra la relación entre las variables continuas, como la edad, el nivel de colesterol, y el índice de masa corporal (BMI), con la variable de supervivencia.
+    \item \textbf{Gráfico de Importancia de Variables}: Este gráfico de barras destaca las variables categóricas y numéricas más influyentes en la predicción de la supervivencia o la etapa del cáncer.
+    \item \textbf{Diagrama de Dispersión}: Permite explorar la influencia de variables geográficas (latitud y longitud) y otras variables numéricas en el diagnóstico de cáncer de pulmón.
+\end{itemize}
+
+\item T2:
+El análisis de diferencias entre pacientes y los comportamientos de los distintos grupos se visualiza mediante mapas, gráficos de barras apiladas y diagramas de caja (box plots). Estos componentes permiten segmentar a los pacientes según diferentes criterios y observar patrones en sus comportamientos y características.
+
+\begin{itemize}
+    \item \textbf{Map View}: Un mapa interactivo que permite visualizar la distribución geográfica de los pacientes diagnosticados, mostrando la prevalencia por regiones y correlacionándola con variables de riesgo como el historial familiar y el estado de tabaquismo.
+    \item \textbf{Gráfico de Barras Apiladas}: Este gráfico se utiliza para comparar la distribución de diferentes estados de tabaquismo y su relación con la supervivencia en las distintas regiones.
+    \item \textbf{Box Plots}: Utilizados para comparar distribuciones de edad, nivel de colesterol, y BMI entre los distintos estadios del cáncer, proporcionando una visión clara de las diferencias entre los grupos de pacientes.
+\end{itemize}
+
+\item T3:
+La distribución de las variables principales y su influencia en el cáncer de pulmón se visualiza mediante histogramas, gráficos de densidad, y diagramas de violín. Estos componentes ayudan a entender cómo se distribuyen las variables clave y su impacto en la enfermedad.
+
+\begin{itemize}
+    \item \textbf{Histogramas}: Permiten visualizar la distribución de la edad, BMI, y nivel de colesterol, mostrando cómo se agrupan los pacientes en diferentes categorías de riesgo.
+    \item \textbf{Gráficos de Densidad}: Muestran la distribución suave de variables continuas, como la edad o la duración del tratamiento, destacando las áreas de mayor concentración de casos.
+    \item \textbf{Diagramas de Violín}: Combinan información de la densidad de probabilidad con estadísticas descriptivas, ofreciendo una visión completa de la distribución de variables como la edad y el nivel de colesterol entre los diferentes estadios del cáncer.
+\end{itemize}
+
+\end{itemize}
+
+Se ha diseñado una aplicación visual interactiva que incorpora los componentes mencionados para responder a las tareas de diseño:
+
+\begin{enumerate}
+    \item \textbf{Panel de Correlación}: Permite seleccionar variables y explorar sus correlaciones con la supervivencia y otras variables clave.
+    \item \textbf{Vista Geográfica (Map View)}: Ofrece un mapa interactivo que muestra la distribución de los pacientes según la región y permite filtrar por diferentes factores de riesgo.
+    \item \textbf{Panel de Distribución}: Facilita la visualización de distribuciones de variables principales mediante histogramas y gráficos de densidad.
+\end{enumerate}
+
+En la tabla \ref{tab:visualtareas} se presenta un cuadro que cruza los componentes visuales con las tareas de diseño. 
+
+\begin{table}[h!]
+\centering
+\caption{Componentes Visuales y Tareas de Diseño}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{Componente Visual} & \textbf{T1} & \textbf{T2} & \textbf{T3} \\ \hline
+Gráfico de Correlación & X &  &  \\ \hline
+Gráfico de Importancia & X &  &  \\ \hline
+Diagrama de Dispersión & X &  &  \\ \hline
+Map View &  & X &  \\ \hline
+Gráfico de Barras Apiladas &  & X &  \\ \hline
+Box Plots &  & X &  \\ \hline
+Histogramas &  &  & X \\ \hline
+Gráficos de Densidad &  &  & X \\ \hline
+Diagramas de Violín &  &  & X \\ \hline
+\end{tabular}
+\label{tab:visualtareas}
+\end{table}
+
 
 \section{Resultados}
 
@@ -351,9 +412,9 @@ Detalle de la aplicación
 \href{https://colab.research.google.com/drive/1-HcDMOWJxGsakeZxqYCUc18EXPyz__4q?usp=sharing}{URL: Código  colab.research.google }
 
 \section{GitHub}
-Url de git hub: 
+Url de git hub:
 \href{https://github.com/hAriasm/RecuperacionInfo}{URL: RecuperacionInfo }
- 
+
 \ifCLASSOPTIONcaptionsoff
   \newpage
 \fi
